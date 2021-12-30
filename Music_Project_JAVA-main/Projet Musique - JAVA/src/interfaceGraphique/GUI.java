@@ -109,6 +109,6 @@ public class GUI extends JFrame {
             GUI window = new GUI();
             window.setVisible(true);
         });
-        
+
     }
 }
