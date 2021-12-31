@@ -13,7 +13,7 @@ public class GUI extends JFrame {
     private PlaceholderTextField nomArtiste, prenomArtiste, pseudoArtiste;
     private JPanel panel;
     private JButton button;
-    private JComboBox<String> mainComboBox, subComboBox;
+    private JComboBox<String> mainComboBox;
     private Hashtable<String, String[]> subItems;
 
     public GUI(){
@@ -60,9 +60,9 @@ public class GUI extends JFrame {
         mainComboBox.setBounds(15, 40, 140, 20);
         panel.add(mainComboBox);
 
-        subComboBox = new JComboBox<String>();
-        subComboBox.setPrototypeDisplayValue("XXXXXXXXXX");
-        panel.add(subComboBox);
+//        subComboBox = new JComboBox<String>();
+//        subComboBox.setPrototypeDisplayValue("XXXXXXXXXX");
+//        panel.add(subComboBox);
 
         subItems = new Hashtable<String, String[]>();
         String[] subItems1 = { "Select Color", "Red", "Blue", "Green" };
@@ -84,17 +84,17 @@ public class GUI extends JFrame {
                 String selectedCategory = "You selected " + mainComboBox.getItemAt(mainComboBox.getSelectedIndex());
                 jLabel.setText(selectedCategory);
 
-                String item = (String)mainComboBox.getSelectedItem();
-                Object o = subItems.get( optionsToChoose );
-
-                if (o == null)
-                {
-                    subComboBox.setModel( new DefaultComboBoxModel() );
-                }
-                else
-                {
-                    subComboBox.setModel( new DefaultComboBoxModel( (String[])o ) );
-                }
+//                String item = (String)mainComboBox.getSelectedItem();
+//                Object o = subItems.get( optionsToChoose );
+//
+//                if (o == null)
+//                {
+//                    subComboBox.setModel( new DefaultComboBoxModel() );
+//                }
+//                else
+//                {
+//                    subComboBox.setModel( new DefaultComboBoxModel( (String[])o ) );
+//                }
             }
         });
 
@@ -106,5 +106,16 @@ public class GUI extends JFrame {
             window.setVisible(true);
         });
 
+
     }
+    private static void createAndShowUI()
+    {
+        JFrame frame = new JFrame("SSCCE");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add( new ComboBoxTwo() );
+        frame.setLocationByPlatform( true );
+        frame.pack();
+        frame.setVisible( true );
+    }
+
 }
