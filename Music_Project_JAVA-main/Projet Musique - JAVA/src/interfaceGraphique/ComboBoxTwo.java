@@ -4,21 +4,16 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
-import java.awt.event.ActionListener;
-
-
 
 public class ComboBoxTwo extends JPanel implements ActionListener
 {
     private JComboBox<String> mainComboBox;
     private JComboBox<String> subComboBox;
     private Hashtable<String, String[]> subItems = new Hashtable<String, String[]>();
-    private PlaceholderTextField nomArtiste, prenomArtiste, pseudoArtiste;
-
 
     public ComboBoxTwo()
     {
-        String[] items = { "Artiste", "Playlist" };
+        String[] items = { "Select Item", "Color", "Shape", "Fruit" };
         mainComboBox = new JComboBox<String>( items );
         mainComboBox.addActionListener( this );
 
@@ -32,15 +27,19 @@ public class ComboBoxTwo extends JPanel implements ActionListener
         subComboBox.setPrototypeDisplayValue("XXXXXXXXXX"); // JDK1.4
         add( subComboBox );
 
-        String[] subItems0 = { "Nom","Prénom","Pseudo" };
-        subItems.put(items[0], subItems0);
-
-        String[] subItems1 = { "Genre","Pop","Rap","Variété Française" };
+        String[] subItems1 = { "Select Color", "Red", "Blue", "Green" };
         subItems.put(items[1], subItems1);
+
+        String[] subItems2 = { "Select Shape", "Circle", "Square", "Triangle" };
+        subItems.put(items[2], subItems2);
+
+        String[] subItems3 = { "Select Fruit", "Apple", "Orange", "Banana" };
+        subItems.put(items[3], subItems3);
     }
 
     public void actionPerformed(ActionEvent e)
     {
+        System.out.println("boby");
         String item = (String)mainComboBox.getSelectedItem();
         Object o = subItems.get( item );
 
